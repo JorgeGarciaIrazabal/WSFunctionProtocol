@@ -138,6 +138,9 @@ class HubsInspector:
     def include_hubs_in(cls, paths):
         if paths not in (tuple, list, set):
             paths = [paths]
+        for i, path in enumerate(paths):
+            paths[i] = os.path.join(path, '*.py') if os.path.isdir(path) else path
+
         paths = list(paths)
         python_files = set()
         for path in paths:

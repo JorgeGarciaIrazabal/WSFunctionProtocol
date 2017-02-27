@@ -155,3 +155,15 @@ class TestHubInspector(unittest.TestCase):
         hubs_info = HubsInspector.get_hubs_information()
         self.assertIn("SubHub2", hubs_info)
         self.assertIn("SubHub3", hubs_info)
+
+    def test_include_hubs_in_addsModulesIfPathIncluded(self):
+        hubs_info = HubsInspector.get_hubs_information()
+        self.assertNotIn("InPath1", hubs_info)
+        self.assertNotIn("InPath2", hubs_info)
+
+        HubsInspector.include_hubs_in(self.resources_path + os.sep + "in_path")
+        HubsInspector.inspect_implemented_hubs(force_reconstruction=True)
+
+        hubs_info = HubsInspector.get_hubs_information()
+        self.assertIn("InPath1", hubs_info)
+        self.assertIn("InPath2", hubs_info)

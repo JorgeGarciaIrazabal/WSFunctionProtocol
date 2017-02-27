@@ -302,6 +302,11 @@ function HubsAPI(serverTimeout, wsClientClass, PromiseClass) {{
     }};
     {main}
 }}
+
+if (module && module.exports) {{
+  module.exports = HubsAPI;
+}}
+
 /* jshint ignore:end */
 /* ignore jslint end */
     """
