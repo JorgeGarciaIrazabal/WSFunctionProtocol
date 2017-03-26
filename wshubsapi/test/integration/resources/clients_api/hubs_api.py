@@ -140,6 +140,12 @@ class HubsAPI(object):
         self.serializer = Serializer()
         self.ChatHub = self.ChatHubClass(self.ws_client)
         self.EchoHub = self.EchoHubClass(self.ws_client)
+        self.InPath1 = self.InPath1Class(self.ws_client)
+        self.InPath2 = self.InPath2Class(self.ws_client)
+        self.SubHub = self.SubHubClass(self.ws_client)
+        self.SubHub1 = self.SubHub1Class(self.ws_client)
+        self.SubHub2 = self.SubHub2Class(self.ws_client)
+        self.SubHub3 = self.SubHub3Class(self.ws_client)
         self.UtilsAPIHub = self.UtilsAPIHubClass(self.ws_client)
 
     @property
@@ -257,6 +263,288 @@ class HubsAPI(object):
                 args.append(message)
                 return self.construct_message(args, "echo_to_sender")
 
+            def get_subscribed_clients_ids(self, ):
+                """
+                :rtype : Future
+                """
+                args = list()
+                
+                return self.construct_message(args, "get_subscribed_clients_ids")
+
+            def subscribe_to_hub(self, ):
+                """
+                :rtype : Future
+                """
+                args = list()
+                
+                return self.construct_message(args, "subscribe_to_hub")
+
+            def unsubscribe_from_hub(self, ):
+                """
+                :rtype : Future
+                """
+                args = list()
+                
+                return self.construct_message(args, "unsubscribe_from_hub")
+
+        class ClientClass(GenericClient):
+            def __init__(self):
+                pass
+            
+
+        class ClientsInServer(GenericBridge):
+            def __init__(self, client_ids, hub):
+                super(self.__class__, self).__init__(hub)
+                self.clients_ids = client_ids
+            
+
+    class InPath1Class(object):
+        def __init__(self, ws_client):
+            self.name = "InPath1"
+            self.ws_client = ws_client
+            self.server = self.ServerClass(self)
+            self.client = self.ClientClass()
+
+        def get_clients(self, client_ids):
+            return HubsAPI.InPath1Class.ClientsInServer(client_ids, self)
+
+        class ServerClass(GenericServer):
+            
+            def get_subscribed_clients_ids(self, ):
+                """
+                :rtype : Future
+                """
+                args = list()
+                
+                return self.construct_message(args, "get_subscribed_clients_ids")
+
+            def subscribe_to_hub(self, ):
+                """
+                :rtype : Future
+                """
+                args = list()
+                
+                return self.construct_message(args, "subscribe_to_hub")
+
+            def unsubscribe_from_hub(self, ):
+                """
+                :rtype : Future
+                """
+                args = list()
+                
+                return self.construct_message(args, "unsubscribe_from_hub")
+
+        class ClientClass(GenericClient):
+            def __init__(self):
+                pass
+            
+
+        class ClientsInServer(GenericBridge):
+            def __init__(self, client_ids, hub):
+                super(self.__class__, self).__init__(hub)
+                self.clients_ids = client_ids
+            
+
+    class InPath2Class(object):
+        def __init__(self, ws_client):
+            self.name = "InPath2"
+            self.ws_client = ws_client
+            self.server = self.ServerClass(self)
+            self.client = self.ClientClass()
+
+        def get_clients(self, client_ids):
+            return HubsAPI.InPath2Class.ClientsInServer(client_ids, self)
+
+        class ServerClass(GenericServer):
+            
+            def get_subscribed_clients_ids(self, ):
+                """
+                :rtype : Future
+                """
+                args = list()
+                
+                return self.construct_message(args, "get_subscribed_clients_ids")
+
+            def subscribe_to_hub(self, ):
+                """
+                :rtype : Future
+                """
+                args = list()
+                
+                return self.construct_message(args, "subscribe_to_hub")
+
+            def unsubscribe_from_hub(self, ):
+                """
+                :rtype : Future
+                """
+                args = list()
+                
+                return self.construct_message(args, "unsubscribe_from_hub")
+
+        class ClientClass(GenericClient):
+            def __init__(self):
+                pass
+            
+
+        class ClientsInServer(GenericBridge):
+            def __init__(self, client_ids, hub):
+                super(self.__class__, self).__init__(hub)
+                self.clients_ids = client_ids
+            
+
+    class SubHubClass(object):
+        def __init__(self, ws_client):
+            self.name = "SubHub"
+            self.ws_client = ws_client
+            self.server = self.ServerClass(self)
+            self.client = self.ClientClass()
+
+        def get_clients(self, client_ids):
+            return HubsAPI.SubHubClass.ClientsInServer(client_ids, self)
+
+        class ServerClass(GenericServer):
+            
+            def get_subscribed_clients_ids(self, ):
+                """
+                :rtype : Future
+                """
+                args = list()
+                
+                return self.construct_message(args, "get_subscribed_clients_ids")
+
+            def subscribe_to_hub(self, ):
+                """
+                :rtype : Future
+                """
+                args = list()
+                
+                return self.construct_message(args, "subscribe_to_hub")
+
+            def unsubscribe_from_hub(self, ):
+                """
+                :rtype : Future
+                """
+                args = list()
+                
+                return self.construct_message(args, "unsubscribe_from_hub")
+
+        class ClientClass(GenericClient):
+            def __init__(self):
+                pass
+            
+
+        class ClientsInServer(GenericBridge):
+            def __init__(self, client_ids, hub):
+                super(self.__class__, self).__init__(hub)
+                self.clients_ids = client_ids
+            
+
+    class SubHub1Class(object):
+        def __init__(self, ws_client):
+            self.name = "SubHub1"
+            self.ws_client = ws_client
+            self.server = self.ServerClass(self)
+            self.client = self.ClientClass()
+
+        def get_clients(self, client_ids):
+            return HubsAPI.SubHub1Class.ClientsInServer(client_ids, self)
+
+        class ServerClass(GenericServer):
+            
+            def get_subscribed_clients_ids(self, ):
+                """
+                :rtype : Future
+                """
+                args = list()
+                
+                return self.construct_message(args, "get_subscribed_clients_ids")
+
+            def subscribe_to_hub(self, ):
+                """
+                :rtype : Future
+                """
+                args = list()
+                
+                return self.construct_message(args, "subscribe_to_hub")
+
+            def unsubscribe_from_hub(self, ):
+                """
+                :rtype : Future
+                """
+                args = list()
+                
+                return self.construct_message(args, "unsubscribe_from_hub")
+
+        class ClientClass(GenericClient):
+            def __init__(self):
+                pass
+            
+
+        class ClientsInServer(GenericBridge):
+            def __init__(self, client_ids, hub):
+                super(self.__class__, self).__init__(hub)
+                self.clients_ids = client_ids
+            
+
+    class SubHub2Class(object):
+        def __init__(self, ws_client):
+            self.name = "SubHub2"
+            self.ws_client = ws_client
+            self.server = self.ServerClass(self)
+            self.client = self.ClientClass()
+
+        def get_clients(self, client_ids):
+            return HubsAPI.SubHub2Class.ClientsInServer(client_ids, self)
+
+        class ServerClass(GenericServer):
+            
+            def get_subscribed_clients_ids(self, ):
+                """
+                :rtype : Future
+                """
+                args = list()
+                
+                return self.construct_message(args, "get_subscribed_clients_ids")
+
+            def subscribe_to_hub(self, ):
+                """
+                :rtype : Future
+                """
+                args = list()
+                
+                return self.construct_message(args, "subscribe_to_hub")
+
+            def unsubscribe_from_hub(self, ):
+                """
+                :rtype : Future
+                """
+                args = list()
+                
+                return self.construct_message(args, "unsubscribe_from_hub")
+
+        class ClientClass(GenericClient):
+            def __init__(self):
+                pass
+            
+
+        class ClientsInServer(GenericBridge):
+            def __init__(self, client_ids, hub):
+                super(self.__class__, self).__init__(hub)
+                self.clients_ids = client_ids
+            
+
+    class SubHub3Class(object):
+        def __init__(self, ws_client):
+            self.name = "SubHub3"
+            self.ws_client = ws_client
+            self.server = self.ServerClass(self)
+            self.client = self.ClientClass()
+
+        def get_clients(self, client_ids):
+            return HubsAPI.SubHub3Class.ClientsInServer(client_ids, self)
+
+        class ServerClass(GenericServer):
+            
             def get_subscribed_clients_ids(self, ):
                 """
                 :rtype : Future
